@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from store.models import Product, Category
 
 
-def all_products(request):
+def product_all(request):
     products = Product.objects.all()
     return render(request, 'store/home.html', {'products': products})
 
