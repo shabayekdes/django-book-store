@@ -30,7 +30,7 @@ class TestViewResponses(TestCase):
         """
         response = self.c.get('/', HTTP_HOST='noaddress.com')
         self.assertEqual(response.status_code, 400)
-        response = self.c.get('/')
+        response = self.c.get('/', HTTP_HOST='yourdomain.com')
         self.assertEqual(response.status_code, 200)
 
     def test_homepage_url(self):
