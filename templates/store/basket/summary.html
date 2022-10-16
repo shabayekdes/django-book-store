@@ -62,17 +62,17 @@
         // Delete Item
         $(document).on('click', '.delete-button', function (e) {
             e.preventDefault();
-            var prodid = $(this).data('index');
+            const product_id = $(this).data('index');
             $.ajax({
                 type: 'POST',
                 url: '{% url "basket:basket_delete" %}',
                 data: {
-                    productid: $(this).data('index'),
+                    productid: product_id,
                     csrfmiddlewaretoken: "{{csrf_token}}",
                     action: 'post'
                 },
                 success: function (json) {
-                    $('.product-item[data-index="' + prodid + '"]').remove();
+                    $('.product-item[data-index="' + product_id + '"]').remove();
                     document.getElementById("subtotal").innerHTML = json.subtotal;
                     document.getElementById("basket-qty").innerHTML = json.qty
                 },
