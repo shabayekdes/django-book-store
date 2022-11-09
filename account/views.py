@@ -40,7 +40,8 @@ def account_register(request):
 
 @login_required
 def dashboard(request):
-    return HttpResponse('Dashboard')
+    return render(request,
+                  'account/user/dashboard.html', {})
 
 
 def account_activate(request, uidb64, token):
