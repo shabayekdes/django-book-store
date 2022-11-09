@@ -46,6 +46,7 @@ def dashboard(request):
 def account_activate(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
+        print(uid)
         user = UserBase.objects.get(pk=uid)
     except():
         user = None
